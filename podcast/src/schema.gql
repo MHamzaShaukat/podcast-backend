@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PodcastImagesDTO {
+  default: String
+  featured: String
+  thumbnail: String
+  wide: String
+}
+
+type PodcastDTO {
+  id: String!
+  title: String!
+  images: PodcastImagesDTO!
+  isExclusive: Boolean!
+  publisherName: String!
+  publisherId: String!
+  mediaType: String!
+  description: String!
+  categoryId: String!
+  categoryName: String!
+  hasFreeEpisodes: Boolean!
+  playSequence: String!
+}
+
+type PodcastResponseDTO {
+  podcasts: [PodcastDTO!]!
+  totalCount: Float!
+  page: Int
+  limit: Int
+}
+
+type Query {
+  podcasts(pagination: PaginationDTO!): PodcastResponseDTO!
+}
+
+input PaginationDTO {
+  page: Int
+  limit: Int
+  search: String
+  title: String
+  categoryName: String
+}
